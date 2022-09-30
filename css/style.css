@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap');
+
+/* Allmänt/globala stilregler */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #040512;
+    background-image: linear-gradient(0deg, #040512 0%, #293351 100%);
+    background-attachment: fixed;
+    color: rgb(228, 228, 228);
+    font: normal normal 200 1rem/180% 'Oswald', sans-serif;
+}
+
+nav { 
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 200;
+    text-align: center;
+    letter-spacing: 3px;
+    margin: 60px 0px;
+}
+
+h2 {
+    font-size: 1em;
+    font-weight: 300;
+    position: relative;
+}
+
+p {
+    font-family: Helvetica, sans-serif;
+    margin-bottom: 0;
+    opacity: .9;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: rgb(228, 228, 228);
+}
+
+a:hover {
+    color: rgb(153, 148, 204);
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Startsida */
+
+.galleri {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.galleri section {
+    width: 70%;
+    margin-top: 40px;
+    text-align: center;
+}
+
+#projekt1 img, #projekt3 img  {
+    box-shadow: 40px -30px 0px 12px #0f0425cb;
+}
+
+#projekt2 img, #projekt4 img {
+    box-shadow: -40px -30px 0px 12px #0f0425cb;
+}
+
+#projekt2, #projekt4 {
+    align-self: flex-end;
+}
+
+/* Om mig-sida */
+
+.avatar-container {
+    margin-top: -10px;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-container img {
+    width: 40%;
+    filter: saturate(80%);
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.om-container > p {
+    width: 75%;
+    margin: 20px auto;
+}
+
+/* Projektsida */
+
+.projekt {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.projekt p, .projekt img {
+    margin-top: 20px;
+    width: 90%;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+    padding: 2em; /* align items????? ??????????????????????*/
+    font-size: .8em;
+}
+
+.email::before, .tel::before, .github::before {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.email::before {
+    content: url(../images/mail.svg);
+    /* margin-right: 5px;
+    vertical-align: middle; */
+}
+
+.tel::before {
+    content: url(../images/phone.svg);
+    /* margin-right: 5px;
+    vertical-align: middle; */
+}
+
+.github::before {
+    content: url(../images/user-circle.svg);
+    /* margin-right: 5px;
+    vertical-align: middle; */
+}
+
+/* Fallande snö-animation */
+
+.snow, .snow-small {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: -20px;
+}
+
+.snow img {
+    width: 15px;
+    animation: falling 5s linear infinite;
+}
+
+.snow-small img {
+    width: 8px;
+    animation: falling 3s linear infinite;
+}
+
+.snow img:nth-child(2), .snow img:nth-child(4), .snow-small img:nth-child(2), .snow-small img:nth-child(4), .snow-small img:nth-child(6) {
+    animation-delay: 1s;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+    70% {
+        opacity: .5;
+    }
+    100% {
+        transform: translateY(35vh);
+        opacity: 0;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    nav {
+        margin-top: 50px;
+    }
+    
+    h1 {
+        font-size: 3em;
+        margin-top: 90px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    /* Startsida */
+    
+    .galleri {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .galleri section {
+        width: 48%;
+        text-align: center;
+    }
+    
+    #projekt1 img, #projekt2 img, #projekt3 img, #projekt4 img  {
+        box-shadow: none;
+    }
+
+    /* Om mig-sida */
+
+    .om-container {
+        margin-top: 110px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .avatar-container {
+        width: 30%;
+        display: block;
+    }
+
+    .avatar-container img {
+        width: 100%;
+    }
+
+    .om-container p {
+        line-height: 200%;
+        width: 45%;
+        font-size: 1.1em;
+        margin: 0;
+    }
+
+    /* Projekt-sida */
+
+    .projekt {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .projekt > img {
+        width: 49%;
+    }
+
+    .projekt > p {
+        width: 40%;
+        margin: 0 auto;
+        align-self: center;
+    }
+
+    footer {
+        font-size: 1em;
+    }
+    
+}
+
+@media screen and (min-width: 1000px) {
+    nav {
+        justify-content: flex-start;
+    }
+
+    nav button {
+        margin-left: 40px;
+    }
+    
+    main {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    /* Startsida */
+    
+    .galleri {
+        width: 66%;
+    }
+
+    .galleri section {
+        width: 49%;
+        margin-top: 30px;
+    }
+
+    h1 {
+        margin: 70px;
+        width: 200px;
+    }
+
+    h2 {
+        font-weight: 200;
+    }
+
+    /* Om mig-sida */ 
+
+    #om-rubrik {
+        position: absolute;
+    }
+
+    .avatar-container {
+        width: 20%;
+    }
+
+    /* Projekt-sida */
+
+    .projektheader {
+        width: 60%;
+        margin: 30px 0 20px 0;
+    }
+
+    .projekt-main {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .projekt {
+        justify-content: space-evenly;
+    }
+
+    .projekt > p {
+        width: 33%;
+        position: absolute;
+        inset: 310px auto auto 25px;
+        font-size: .9em;
+    }
+
+    .projekt img {
+        width: 30%;
+    }
+
+}
+
+@media screen and (min-width: 1300px) {
+
+/* Projekt-sida */
+
+    .projekt > p {
+        width: 30%;
+        inset: 350px auto auto 40px;
+    }
+}
